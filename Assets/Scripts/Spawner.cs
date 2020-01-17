@@ -36,6 +36,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < enemyCount; i++)
         {
             GameObject enemy = Instantiate(enemyPref);
+            
             enemy.transform.SetParent(gameObject.transform, false);
 
             yield return new WaitForSeconds(0.4f);

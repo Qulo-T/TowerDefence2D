@@ -30,7 +30,7 @@ public class EnemyControlls : MonoBehaviour
 
         transform.Translate(dir.normalized * Time.deltaTime * speed);
 
-        if (Vector3.Distance(transform.position, wayPosition) < 0.1f)
+        if (Vector3.Distance(transform.position, wayPosition) < 0.2f)
         {
             if (waypointIndex < waypoints.Count -1)
             {
