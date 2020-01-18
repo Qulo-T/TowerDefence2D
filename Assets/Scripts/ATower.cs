@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public abstract class ATower : MonoBehaviour
 {
     [SerializeField] private float range;
     [SerializeField] private int damage;
