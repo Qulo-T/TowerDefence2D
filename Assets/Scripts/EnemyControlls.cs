@@ -2,20 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControlls : MonoBehaviour
+public class EnemyControlls : MonoBehaviour, ItakenDamage
 {
-   private GameControlls gameControlls;
-   private List<GameObject> waypoints = new List<GameObject>();
-   
+    [SerializeField] private int health;
+    [SerializeField] private int damage;
+    [SerializeField] private int reward;
+    [SerializeField] private float mfSpeed = 1;
 
-    int waypointIndex = 0;
-    int speed; //добавить множитель скорости, в зависимости от типа врага
+    private float speed;
+    private int waypointIndex = 0;
+
+    private Player player;
+    private GameControlls gameControlls;
+    private List<GameObject> waypoints = new List<GameObject>();
+
 
     void Start()
     {
-        gameControlls = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameControlls>();
-        
-        speed = gameControlls.GetSpeed;
+
+        gameControlls = transform.parent.gameObject.GetComponent<Spawner>().gameControlls;
+        player = transform.parent.gameObject.GetComponent<Spawner>().player;
+
+        speed = gameControlls.GetSpeed * mfSpeed;
         waypoints = gameControlls.GetWayPoints;
     }
 
@@ -23,7 +31,7 @@ public class EnemyControlls : MonoBehaviour
     {
         Move();
     }
-    void Move() 
+    void Move()
     {
         Vector3 wayPosition = waypoints[waypointIndex].transform.position;
         Vector3 dir = wayPosition - transform.position;
@@ -32,15 +40,33 @@ public class EnemyControlls : MonoBehaviour
 
         if (Vector3.Distance(transform.position, wayPosition) < 0.2f)
         {
-            if (waypointIndex < waypoints.Count -1)
+            if (waypointIndex < waypoints.Count - 1)
             {
                 waypointIndex++;
             }
             else
             {
-                //прописать отнимание ХП
+                player.TakenDamage(damage);
                 Destroy(gameObject);
             }
         }
     }
+
+    public void TakenDamage(int damage)
+    {
+        health -= damage;
+        isAlive();
+    }
+
+    public void isAlive()
+    {
+        if (health <= 0)
+
+        {
+            player.TakenReward(reward);
+            player.AddFrag();
+            Destroy(gameObject);
+        }
+    }
+
 }

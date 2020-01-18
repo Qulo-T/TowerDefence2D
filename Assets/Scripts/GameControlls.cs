@@ -8,22 +8,15 @@ public class GameControlls : MonoBehaviour
     [SerializeField] private int enemySpeed;
     [SerializeField] private float timeToSpawn;
     [SerializeField] private GameObject wayPoints;
-
-    void Start()
-    {
-
-    }
-
-    
-    void Update()
-    {
-
-    }
+    [SerializeField] private int baseGold;
+    [SerializeField] private int playerHP;
 
     public int GetSpeed { get { return enemySpeed; } }
     public float GetTimeSpawn { get { return timeToSpawn; } }
+    public int GetBaseGold { get { return baseGold; } }
+    public int GetPlayerHP { get { return playerHP; } }
     public List<GameObject> GetWayPoints
-    {        
+    {
         get
         {
             List<GameObject> list = new List<GameObject>();
@@ -34,5 +27,8 @@ public class GameControlls : MonoBehaviour
             return list;
         }
     }
+
+
+
 }
 
