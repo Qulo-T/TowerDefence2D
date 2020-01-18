@@ -5,24 +5,26 @@ using UnityEngine;
 public class GameControlls : MonoBehaviour
 {
 
-    [SerializeField] private int enemySpeed;
-    [SerializeField] private float timeToSpawn;
-    [SerializeField] private GameObject wayPoints;
-    [SerializeField] private int baseGold;
-    [SerializeField] private int playerHP;
+    [SerializeField] private float _enemySpeed;
+    [SerializeField] private float _timeToSpawn;
+    [SerializeField] private GameObject _wayPoints;
+    [SerializeField] private int _baseGold;
+    [SerializeField] private int _playerHP;
+    [SerializeField] private int _baseEnemyCount;
 
-    public int GetSpeed { get { return enemySpeed; } }
-    public float GetTimeSpawn { get { return timeToSpawn; } }
-    public int GetBaseGold { get { return baseGold; } }
-    public int GetPlayerHP { get { return playerHP; } }
+    public float GetSpeed { get { return _enemySpeed; } }
+    public float GetTimeSpawn { get { return _timeToSpawn; } }
+    public int GetBaseGold { get { return _baseGold; } }
+    public int GetPlayerHP { get { return _playerHP; } }
+    public int GetBaseEnemyCount { get { return _baseEnemyCount; } }
     public List<GameObject> GetWayPoints
     {
         get
         {
             List<GameObject> list = new List<GameObject>();
-            for (int i = 0; i < wayPoints.transform.childCount; i++)
+            for (int i = 0; i < _wayPoints.transform.childCount; i++)
             {
-                list.Add(wayPoints.transform.GetChild(i).gameObject);
+                list.Add(_wayPoints.transform.GetChild(i).gameObject);
             }
             return list;
         }
