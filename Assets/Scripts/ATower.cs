@@ -56,6 +56,6 @@ public abstract class ATower : MonoBehaviour
     void Shoot(Transform target)
     {
         cooldown = baseCooldown;
-        target.gameObject.GetComponent<EnemyControlls>().TakenDamage(damage);
+        target.gameObject.GetComponent<AEnemy>().TakenDamage(damage);
     }
 }

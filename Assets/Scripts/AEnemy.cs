@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControlls : MonoBehaviour, ItakenDamage
+public abstract class AEnemy : MonoBehaviour, ItakenDamage
 {
     [SerializeField] private int health;
     [SerializeField] private int damage;

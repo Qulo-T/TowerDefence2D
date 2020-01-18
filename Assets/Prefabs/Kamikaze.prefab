@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8820390446774510550}
   - component: {fileID: 2013598094894078596}
-  - component: {fileID: 960148083063880500}
+  - component: {fileID: 865852208752356133}
   m_Layer: 0
   m_Name: Kamikaze
   m_TagString: Enemy
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &960148083063880500
+--- !u!114 &865852208752356133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,10 +90,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9082840251693308183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df3c2b495f674124f90c27cc4e40827f, type: 3}
+  m_Script: {fileID: 11500000, guid: 407b08825912cf34f9a5e9e4e72ee104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
   damage: 10
-  reward: 15
+  reward: 20
   mfSpeed: 1

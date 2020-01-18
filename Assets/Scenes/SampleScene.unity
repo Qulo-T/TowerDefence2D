@@ -1371,12 +1371,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1683468594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 245545b87308671469f31ee068de222d, type: 3}
+  m_Script: {fileID: 11500000, guid: 07e2b2a757343c2458ee8634d19dc827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   range: 2
   damage: 10
-  baseCooldown: 1
+  baseCooldown: 0.5
 --- !u!1 &1710279291
 GameObject:
   m_ObjectHideFlags: 0
