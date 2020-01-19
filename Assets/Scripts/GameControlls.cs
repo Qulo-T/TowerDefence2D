@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameControlls : MonoBehaviour
 {
+    public static bool finishGame = false;
 
     [SerializeField] private float _enemySpeed;
     [SerializeField] private float _timeToSpawn;
