@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
         }
 
         _timeToSpawn -= Time.deltaTime;
-        uiManager.Timer(_timeToSpawn);
+        uiManager.top.Timer(_timeToSpawn);
     }
 
     private int EnemyCount()

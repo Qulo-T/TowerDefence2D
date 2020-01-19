@@ -22,13 +22,12 @@ public class Player : MonoBehaviour, ItakenDamage
     public void AddFrag()
     {
         _kills++;
-        Debug.Log("kills++");
     }
 
     public void TakenReward(int reward)
     {
         _gold += reward;
-        uiManager.Gold(_gold);
+        uiManager.top.Gold(_gold);
     }
 
     public void TakenDamage(int damage)
@@ -41,12 +40,13 @@ public class Player : MonoBehaviour, ItakenDamage
     {
         if (_health <= 0)
         {
-            uiManager.Health(0);
-            uiManager.GameOver(_kills);
+            uiManager.top.Health(0);
+            uiManager.gameoverPanel.GameOver(_kills);
         }
         else
         {
-            uiManager.Health(_health);
+            uiManager.top.Health(_health);
         }
     }
+    
 }

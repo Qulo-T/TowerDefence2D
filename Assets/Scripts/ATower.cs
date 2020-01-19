@@ -8,7 +8,7 @@ public abstract class ATower : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private float baseCooldown;
     private float cooldown;
-
+    
     void Update()
     {
         if (CanShoot())
@@ -58,4 +58,7 @@ public abstract class ATower : MonoBehaviour
         cooldown = baseCooldown;
         target.gameObject.GetComponent<AEnemy>().TakenDamage(damage);
     }
+
+    public int Damage { get { return damage; } set { damage = value; } }
+    public float BaseCooldown { get { return baseCooldown; } set { baseCooldown = value; } }
 }
