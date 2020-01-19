@@ -9,29 +9,42 @@ public class TowerUpgrade : MonoBehaviour
     [SerializeField] private int costUP;
     [SerializeField] private float minCooldown;
     private ATower tower;
+    private int damage;
+    private float cooldown;
 
     void Start()
     {
         tower = GetComponent<ATower>();
+        damage = tower.Damage;
+        cooldown = tower.BaseCooldown;
     }
 
-    public void UpgradeDamage() 
+    public void UpgradeDamage()
     {
-        int damage = tower.Damage;
         damage += damageUP;
         tower.Damage = damage;
+
+        costUP += costUP;
     }
 
     public void UpgradeFireRate()
     {
-        float cooldown = tower.BaseCooldown;
         cooldown -= decreaseCooldown;
         if (cooldown < minCooldown)
         {
             cooldown = minCooldown;
         }
         tower.BaseCooldown = cooldown;
-    }
 
+        costUP += costUP;
+    }
+    public bool CanUpdate()
+    {
+        if (cooldown > minCooldown)
+        {           
+            return true;
+        }
+        return false;
+    }
     public int Costup { get { return costUP; } }
 }

@@ -371,7 +371,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 154709304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1647074301}
+        m_MethodName: UpgradeFireRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &154709304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,7 +971,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Cost: 444'
+  m_Text: 
 --- !u!222 &412094773
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1181,7 +1192,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1198,7 +1209,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1489,7 +1500,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 711385790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1647074301}
+        m_MethodName: UpgradeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &711385790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1978,7 +2000,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 15
+  m_Text: 
 --- !u!222 &1124062153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2800,7 +2822,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: FireRate
+  m_Text: Reload
 --- !u!222 &1446913894
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2891,7 +2913,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1647074302}
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -3212,7 +3234,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1647074302}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -3288,7 +3310,7 @@ RectTransform:
   m_GameObject: {fileID: 1647074297}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.538, y: 0.6374235, z: 1}
+  m_LocalScale: {x: 11.249551, y: 0.6374235, z: 1}
   m_Children:
   - {fileID: 601341719}
   - {fileID: 1280010775}
@@ -3349,6 +3371,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c4ffedee047f942970eba4b2b6dd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePoint: {fileID: 2051676082}
+  fireRatePoint: {fileID: 1124062152}
+  costUpgrade: {fileID: 412094772}
+  icon: {fileID: 601341720}
+  player: {fileID: 400315413}
+  firerateButton: {fileID: 154709303}
 --- !u!114 &1647074302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3372,7 +3400,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1683468596}
   - component: {fileID: 1683468595}
+  - component: {fileID: 1683468599}
+  - component: {fileID: 1683468598}
   - component: {fileID: 1683468597}
+  - component: {fileID: 1683468600}
   m_Layer: 0
   m_Name: StandartTower
   m_TagString: Untagged
@@ -3459,6 +3490,60 @@ MonoBehaviour:
   range: 2
   damage: 10
   baseCooldown: 0.5
+--- !u!114 &1683468598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683468594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc04f7339c94af5499897ba27d7339b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1683468599
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683468594}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.12, y: 0.12}
+    newSize: {x: 0.12, y: 0.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.12, y: 0.12}
+  m_EdgeRadius: 0
+--- !u!114 &1683468600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683468594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce36090df8428941ba11c46f57d477a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageUP: 1
+  decreaseCooldown: 0.01
+  costUP: 10
+  minCooldown: 0.1
 --- !u!1 &1710279291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3571,7 +3656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1647074302}
         m_MethodName: OpenClose
         m_Mode: 1
         m_Arguments:
@@ -3923,7 +4008,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 15
+  m_Text: 
 --- !u!222 &2051676083
 CanvasRenderer:
   m_ObjectHideFlags: 0
