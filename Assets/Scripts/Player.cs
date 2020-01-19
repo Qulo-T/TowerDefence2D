@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour, ItakenDamage
 {
     public GameControlls gameControlls;
+    public UIManager uiManager;
 
     private int _health;
     private int _gold;
@@ -26,12 +28,11 @@ public class Player : MonoBehaviour, ItakenDamage
     public void TakenReward(int reward)
     {
         _gold += reward;
-        Debug.Log("takenReward");
+        uiManager.Gold(_gold);
     }
 
     public void TakenDamage(int damage)
     {
-        Debug.Log("TakenDamage");
         _health -= damage;
         isAlive();
     }
@@ -40,8 +41,12 @@ public class Player : MonoBehaviour, ItakenDamage
     {
         if (_health <= 0)
         {
-            Debug.Log("gameover");
-            Time.timeScale = 0;
+            uiManager.Health(0);
+            uiManager.GameOver(_kills);
+        }
+        else
+        {
+            uiManager.Health(_health);
         }
     }
 }

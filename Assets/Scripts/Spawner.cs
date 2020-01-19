@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
 {
     public GameControlls gameControlls;
     public Player player;
-    public Text UItimer;
+    public UIManager uiManager;
 
     private float _baseTimeToSpawn;
 
@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
         }
 
         _timeToSpawn -= Time.deltaTime;
-        UItimer.text = "Next wave: " + (int)_timeToSpawn; //поправить
+        uiManager.Timer(_timeToSpawn);
     }
 
     private int EnemyCount()
