@@ -26,12 +26,12 @@ public class UIBottom : MonoBehaviour
         icon.sprite = tower.GetComponent<SpriteRenderer>().sprite;
         atower = tower.GetComponent<ATower>();
         towerUpgrade = tower.GetComponent<TowerUpgrade>();
-        CanFirerateUpdate();
+        CanFirerateUp();
         MoneyUpdate();
         UIupdate();
     }
 
-    public void UpgradeDamage()
+    public void UpgradeDamage() //button
     {
         if (tower != null)
         {
@@ -44,7 +44,7 @@ public class UIBottom : MonoBehaviour
             UIupdate();
         }
     }
-    public void UpgradeFireRate()
+    public void UpgradeFireRate() //button
     {
         if (tower != null)
         {
@@ -55,23 +55,26 @@ public class UIBottom : MonoBehaviour
             }
             MoneyUpdate();
             UIupdate();
-            CanFirerateUpdate();
+            CanFirerateUp();
         }
     }
 
     private void UIupdate()
     {
-        gold = player.Gold;
         damagePoint.text = "" + atower.Damage;
         fireRatePoint.text = "" + atower.BaseCooldown;
         costUpgrade.text = "Cost: " + costUP;
     }
-    private void MoneyUpdate()
+    public void MoneyUpdate()
     {
         gold = player.Gold;
-        costUP = towerUpgrade.Costup;
+
+        if (tower != null)
+        {
+            costUP = towerUpgrade.Costup;
+        }
     }
-    private void CanFirerateUpdate()
+    private void CanFirerateUp()
     {
         if (towerUpgrade.CanUpdate())
         {

@@ -41,13 +41,13 @@ public class Player : MonoBehaviour, ItakenDamage
         if (_health <= 0)
         {
             _health = 0;
-            uiManager.gameoverPanel.GameOver(_kills);
+            uiManager.GameOver(_kills);
         }
 
         SendUI();
     }
 
-    public int Gold { get { return _gold; } }
+   
     public void Buy(int value)
     {
         _gold -= value;
@@ -56,9 +56,9 @@ public class Player : MonoBehaviour, ItakenDamage
 
     private void SendUI() 
     {
-        uiManager.top.Gold(_gold);
-        uiManager.top.Health(_health);
+        uiManager.SetGold(_gold);
+        uiManager.SetHealth(_health);
 
     }
-    
+     public int Gold { get { return _gold; } }
 }

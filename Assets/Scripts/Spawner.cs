@@ -16,11 +16,13 @@ public class Spawner : MonoBehaviour
     private int _baseEnemyCount;
 
     public GameObject enemyPref;
+    private EnemyUpgrade _enemyUpgrade;
     void Start()
     {
         _baseEnemyCount = gameControlls.GetBaseEnemyCount;
         _baseTimeToSpawn = gameControlls.GetTimeSpawn;
         _timeToSpawn = _baseTimeToSpawn;
+        _enemyUpgrade = GetComponent<EnemyUpgrade>();
 
     }
 
@@ -34,7 +36,7 @@ public class Spawner : MonoBehaviour
         }
 
         _timeToSpawn -= Time.deltaTime;
-        uiManager.top.Timer(_timeToSpawn);
+        uiManager.SetTimer(_timeToSpawn);
     }
 
     private int EnemyCount()
@@ -48,14 +50,19 @@ public class Spawner : MonoBehaviour
         int enemyCount = EnemyCount();
 
         _spawnCount++;
-
+        
+        
         for (int i = 0; i < enemyCount; i++)
         {
             GameObject enemy = Instantiate(enemyPref);
 
             enemy.transform.SetParent(gameObject.transform, false);
+            _enemyUpgrade.SetUpgrade(enemy);
 
             yield return new WaitForSeconds(0.4f);
         }
+
+        _enemyUpgrade.RandomUpgrade();
+
     }
 }

@@ -12,6 +12,6 @@ public class TowerClick : MonoBehaviour
 
     private void OnMouseDown()
     {
-        uiManager.bottom.SetTower(gameObject);
+        uiManager.SetTower(gameObject);
     }
 }

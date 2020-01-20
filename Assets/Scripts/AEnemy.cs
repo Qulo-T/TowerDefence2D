@@ -7,7 +7,8 @@ public abstract class AEnemy : MonoBehaviour, ItakenDamage
     [SerializeField] private int health;
     [SerializeField] private int damage;
     [SerializeField] private int reward;
-    [SerializeField] private float mfSpeed = 1;
+
+    [SerializeField] private float mfSpeed = 1; //для создания здоровых+медленных врагов или быстрых слабых.
 
     private float speed;
     private int waypointIndex = 0;
@@ -67,6 +68,13 @@ public abstract class AEnemy : MonoBehaviour, ItakenDamage
             player.AddFrag();
             Destroy(gameObject);
         }
+    }
+
+    public void Upgrade(int hp, int dmg, int rwd)
+    {
+        health += hp;
+        damage += dmg;
+        reward += rwd;
     }
 
 }

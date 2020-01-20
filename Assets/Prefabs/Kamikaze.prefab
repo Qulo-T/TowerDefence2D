@@ -95,5 +95,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   damage: 10
-  reward: 20
+  reward: 10
   mfSpeed: 1
