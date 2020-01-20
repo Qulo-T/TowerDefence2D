@@ -5,30 +5,30 @@ using UnityEngine.UI;
 
 public class UITop : MonoBehaviour
 {
-    [SerializeField] private Text uiTimer;
-    [SerializeField] private Text uiGold;    
-    [SerializeField] private Text uiHealth;
-    [SerializeField] private GameControlls gameControlls;
+    [SerializeField] private Text _uiTimer;
+    [SerializeField] private Text _uiGold;    
+    [SerializeField] private Text _uiHealth;
+    [SerializeField] private GameControlls _gameControlls;
 
     void Start()
     {      
-        Health(gameControlls.GetPlayerHP);
-        Gold(gameControlls.GetBaseGold);
+        Health(_gameControlls.GetPlayerHP);
+        Gold(_gameControlls.GetBaseGold);
     }
     public void Timer(float timer)
     {
         timer = Mathf.Ceil(timer);
-        uiTimer.text = "Next wave: " + timer;
+        _uiTimer.text = "Next wave: " + timer;
     }
 
     public void Gold (int gold)
     {
-        uiGold.text ="Gold: "+ gold;
+        _uiGold.text ="Gold: "+ gold;
     }
 
     public void Health(int health) 
     {
-        uiHealth.text = "Health: " + health;
+        _uiHealth.text = "Health: " + health;
     }
 
 

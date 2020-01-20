@@ -23,7 +23,6 @@ public class Spawner : MonoBehaviour
         _baseTimeToSpawn = gameControlls.GetTimeSpawn;
         _timeToSpawn = _baseTimeToSpawn;
         _enemyUpgrade = GetComponent<EnemyUpgrade>();
-
     }
 
 

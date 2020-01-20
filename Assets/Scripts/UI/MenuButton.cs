@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
 {
-    [SerializeField] private GameObject menuPanel;
+    [SerializeField] private GameObject _menuPanel;
 
     void Update()
     {
@@ -18,15 +18,15 @@ public class MenuButton : MonoBehaviour
     {
         if (!GameControlls.finishGame)
         {
-            if (menuPanel.activeSelf)
+            if (_menuPanel.activeSelf)
             {
                 Time.timeScale = 1;
-                menuPanel.SetActive(false);
+                _menuPanel.SetActive(false);
             }
             else
             {
                 Time.timeScale = 0;
-                menuPanel.SetActive(true);
+                _menuPanel.SetActive(true);
             }
         }
 

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class AEnemy : MonoBehaviour, ItakenDamage
 {
-    [SerializeField] private int health;
-    [SerializeField] private int damage;
-    [SerializeField] private int reward;
+    [SerializeField] private int _health;
+    [SerializeField] private int _damage;
+    [SerializeField] private int _reward;
 
-    [SerializeField] private float mfSpeed = 1; //для создания здоровых+медленных врагов или быстрых слабых.
+    [SerializeField] private float _mfSpeed = 1; //для создания здоровых+медленных врагов или быстрых слабых.
 
     private float speed;
     private int waypointIndex = 0;
@@ -24,7 +24,7 @@ public abstract class AEnemy : MonoBehaviour, ItakenDamage
         gameControlls = transform.parent.gameObject.GetComponent<Spawner>().gameControlls;
         player = transform.parent.gameObject.GetComponent<Spawner>().player;
 
-        speed = gameControlls.GetSpeed * mfSpeed;
+        speed = gameControlls.GetSpeed * _mfSpeed;
         waypoints = gameControlls.GetWayPoints;
     }
 
@@ -47,7 +47,7 @@ public abstract class AEnemy : MonoBehaviour, ItakenDamage
             }
             else
             {
-                player.TakenDamage(damage);
+                player.TakenDamage(_damage);
                 Destroy(gameObject);
             }
         }
@@ -55,16 +55,16 @@ public abstract class AEnemy : MonoBehaviour, ItakenDamage
 
     public void TakenDamage(int damage)
     {
-        health -= damage;
+        _health -= damage;
         isAlive();
     }
 
     public void isAlive()
     {
-        if (health <= 0)
+        if (_health <= 0)
 
         {
-            player.TakenReward(reward);
+            player.TakenReward(_reward);
             player.AddFrag();
             Destroy(gameObject);
         }
@@ -72,9 +72,9 @@ public abstract class AEnemy : MonoBehaviour, ItakenDamage
 
     public void Upgrade(int hp, int dmg, int rwd)
     {
-        health += hp;
-        damage += dmg;
-        reward += rwd;
+        _health += hp;
+        _damage += dmg;
+        _reward += rwd;
     }
 
 }

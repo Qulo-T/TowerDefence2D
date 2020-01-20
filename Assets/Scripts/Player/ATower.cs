@@ -4,10 +4,10 @@ using UnityEngine;
 
 public abstract class ATower : MonoBehaviour
 {
-    [SerializeField] private float range;
-    [SerializeField] private int damage;
-    [SerializeField] private float baseCooldown;
-    private float cooldown;
+    [SerializeField] private float _range;
+    [SerializeField] private int _damage;
+    [SerializeField] private float _baseCooldown;
+    private float _cooldown;
     
     void Update()
     {
@@ -16,15 +16,15 @@ public abstract class ATower : MonoBehaviour
             SearchTarget();
         }
 
-        if (cooldown > 0)
+        if (_cooldown > 0)
         {
-            cooldown -= Time.deltaTime;
+            _cooldown -= Time.deltaTime;
         }
     }
 
     bool CanShoot() 
     {
-        if (cooldown <=0)
+        if (_cooldown <=0)
         {
             return true;
         }
@@ -40,7 +40,7 @@ public abstract class ATower : MonoBehaviour
         {
             float currentDistance = Vector2.Distance(transform.position, enemy.transform.position);
 
-            if (currentDistance < targetDistance && currentDistance < range)
+            if (currentDistance < targetDistance && currentDistance < _range)
             {
                 target = enemy.transform;
                 targetDistance = currentDistance;
@@ -55,10 +55,10 @@ public abstract class ATower : MonoBehaviour
 
     void Shoot(Transform target)
     {
-        cooldown = baseCooldown;
-        target.gameObject.GetComponent<AEnemy>().TakenDamage(damage);
+        _cooldown = _baseCooldown;
+        target.gameObject.GetComponent<AEnemy>().TakenDamage(_damage);
     }
 
-    public int Damage { get { return damage; } set { damage = value; } }
-    public float BaseCooldown { get { return baseCooldown; } set { baseCooldown = value; } }
+    public int Damage { get { return _damage; } set { _damage = value; } }
+    public float BaseCooldown { get { return _baseCooldown; } set { _baseCooldown = value; } }
 }

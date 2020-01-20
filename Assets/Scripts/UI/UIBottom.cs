@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class UIBottom : MonoBehaviour
 {
-    [SerializeField] private Text damagePoint;
-    [SerializeField] private Text fireRatePoint;
-    [SerializeField] private Text costUpgrade;
-    [SerializeField] private Image icon;
-    [SerializeField] private Player player;
-    [SerializeField] private Button firerateButton;
+    [SerializeField] private Text _damagePoint;
+    [SerializeField] private Text _fireRatePoint;
+    [SerializeField] private Text _costUpgrade;
+    [SerializeField] private Image _icon;
+    [SerializeField] private Player _player;
+    [SerializeField] private Button _firerateButton;
 
-    private GameObject tower;
-    private ATower atower;
-    private TowerUpgrade towerUpgrade;
+    private GameObject _tower;
+    private ATower _atower;
+    private TowerUpgrade _towerUpgrade;
 
     private int gold;
     private int costUP;
@@ -22,10 +22,10 @@ public class UIBottom : MonoBehaviour
     public void SetTower(GameObject tw)
     {
 
-        tower = tw;
-        icon.sprite = tower.GetComponent<SpriteRenderer>().sprite;
-        atower = tower.GetComponent<ATower>();
-        towerUpgrade = tower.GetComponent<TowerUpgrade>();
+        _tower = tw;
+        _icon.sprite = _tower.GetComponent<SpriteRenderer>().sprite;
+        _atower = _tower.GetComponent<ATower>();
+        _towerUpgrade = _tower.GetComponent<TowerUpgrade>();
         CanFirerateUp();
         MoneyUpdate();
         UIupdate();
@@ -33,12 +33,12 @@ public class UIBottom : MonoBehaviour
 
     public void UpgradeDamage() //button
     {
-        if (tower != null)
+        if (_tower != null)
         {
             if (gold >= costUP)
             {
-                towerUpgrade.UpgradeDamage();
-                player.Buy(costUP);
+                _towerUpgrade.UpgradeDamage();
+                _player.Buy(costUP);
             }
             MoneyUpdate();
             UIupdate();
@@ -46,12 +46,12 @@ public class UIBottom : MonoBehaviour
     }
     public void UpgradeFireRate() //button
     {
-        if (tower != null)
+        if (_tower != null)
         {
             if (gold >= costUP)
             {
-                towerUpgrade.UpgradeFireRate();
-                player.Buy(costUP);
+                _towerUpgrade.UpgradeFireRate();
+                _player.Buy(costUP);
             }
             MoneyUpdate();
             UIupdate();
@@ -61,28 +61,28 @@ public class UIBottom : MonoBehaviour
 
     private void UIupdate()
     {
-        damagePoint.text = "" + atower.Damage;
-        fireRatePoint.text = "" + atower.BaseCooldown;
-        costUpgrade.text = "Cost: " + costUP;
+        _damagePoint.text = "" + _atower.Damage;
+        _fireRatePoint.text = "" + _atower.BaseCooldown;
+        _costUpgrade.text = "Cost: " + costUP;
     }
     public void MoneyUpdate()
     {
-        gold = player.Gold;
+        gold = _player.Gold;
 
-        if (tower != null)
+        if (_tower != null)
         {
-            costUP = towerUpgrade.Costup;
+            costUP = _towerUpgrade.Costup;
         }
     }
     private void CanFirerateUp()
     {
-        if (towerUpgrade.CanUpdate())
+        if (_towerUpgrade.CanUpdate())
         {
-            firerateButton.interactable = true;
+            _firerateButton.interactable = true;
         }
         else
         {
-            firerateButton.interactable = false;
+            _firerateButton.interactable = false;
         }
     }
 

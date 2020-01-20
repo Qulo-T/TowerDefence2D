@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private UITop top;
-    [SerializeField] private UIBottom bottom;
-    [SerializeField] private UIGameOver gameoverPanel;
+    [SerializeField] private UITop _top;
+    [SerializeField] private UIBottom _bottom;
+    [SerializeField] private UIGameOver _gameoverPanel;
 
     public void SetGold(int gold) 
     {
-        top.Gold(gold);
-        bottom.MoneyUpdate();
+        _top.Gold(gold);
+        _bottom.MoneyUpdate();
     }
 
     public void SetHealth(int health)
     {
-        top.Health(health);
+        _top.Health(health);
     }
 
     public void SetTimer(float timer)
     {
-        top.Timer(timer);
+        _top.Timer(timer);
     }
 
     public void SetTower(GameObject tower)
     {
-        bottom.SetTower(tower);
+        _bottom.SetTower(tower);
     }
 
     public void GameOver(int kills)
     {
-        gameoverPanel.GameOver(kills);
+        _gameoverPanel.GameOver(kills);
     }
 }
