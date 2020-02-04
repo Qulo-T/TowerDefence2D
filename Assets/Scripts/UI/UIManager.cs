@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIBottom _bottom;
     [SerializeField] private UIGameOver _gameoverPanel;
 
+
     public void SetGold(int gold) 
     {
         _top.Gold(gold);

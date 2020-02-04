@@ -21,7 +21,6 @@ public class UIBottom : MonoBehaviour
 
     public void SetTower(GameObject tw)
     {
-
         _tower = tw;
         _icon.sprite = _tower.GetComponent<SpriteRenderer>().sprite;
         _atower = _tower.GetComponent<ATower>();

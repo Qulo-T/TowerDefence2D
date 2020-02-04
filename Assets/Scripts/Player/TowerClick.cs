@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class TowerClick : MonoBehaviour
 {
-    private UIManager _uiManager;
+    public UIManager _uiManager;
     void Start()
     {
-        //сделано через Find, чтобы, в дальнейшем, при покупке башен не было ошибок.
-        _uiManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<UIManager>();
+        _uiManager = glObjects.uiManagerGL;
     }
 
     private void OnMouseDown()
