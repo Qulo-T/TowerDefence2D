@@ -12,12 +12,14 @@ public class GameControlls : MonoBehaviour
     [SerializeField] private int _baseGold;
     [SerializeField] private int _playerHP;
     [SerializeField] private int _baseEnemyCount;
+    [SerializeField] private List<GameObject> _towerList;
 
     public float GetSpeed { get { return _enemySpeed; } }
     public float GetTimeSpawn { get { return _timeToSpawn; } }
     public int GetBaseGold { get { return _baseGold; } }
     public int GetPlayerHP { get { return _playerHP; } }
     public int GetBaseEnemyCount { get { return _baseEnemyCount; } }
+    public List<GameObject> GetTowerList { get { return _towerList; } }
     public List<GameObject> GetWayPoints
     {
         get

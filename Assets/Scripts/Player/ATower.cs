@@ -7,6 +7,8 @@ public abstract class ATower : MonoBehaviour
     [SerializeField] private float _range;
     [SerializeField] private int _damage;
     [SerializeField] private float _baseCooldown;
+    [SerializeField] private string _name;
+    [SerializeField] private int _price;
     private float _cooldown;
     
     void Update()
@@ -60,5 +62,7 @@ public abstract class ATower : MonoBehaviour
     }
 
     public int Damage { get { return _damage; } set { _damage = value; } }
+    public int GetPrice { get { return _price; } }
+    public string GetName { get { return _name; } }
     public float BaseCooldown { get { return _baseCooldown; } set { _baseCooldown = value; } }
 }
