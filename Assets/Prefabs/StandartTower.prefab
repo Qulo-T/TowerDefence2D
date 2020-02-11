@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc04f7339c94af5499897ba27d7339b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiManager: {fileID: 0}
 --- !u!114 &617970541769300183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +138,8 @@ MonoBehaviour:
   _range: 2
   _damage: 10
   _baseCooldown: 0.6
+  _name: Arrow
+  _price: 1
 --- !u!114 &617970541769300186
 MonoBehaviour:
   m_ObjectHideFlags: 0

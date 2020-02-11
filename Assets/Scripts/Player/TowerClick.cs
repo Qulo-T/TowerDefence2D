@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerClick : MonoBehaviour
 {
-    public UIManager _uiManager;
+    private UIManager _uiManager;
     void Start()
     {
         _uiManager = glObjects.uiManagerGL;

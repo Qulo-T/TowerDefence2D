@@ -33,6 +33,8 @@ public class Shop : MonoBehaviour
         tower.transform.SetParent(_emptyCell.transform);
         tower.transform.position = _emptyCell.transform.position;
         _emptyCell.GetComponent<EmptyCell>().SetStatus(false);
+
+        gameObject.SetActive(false);
     }
 
     public void SetEmptyCell(GameObject cell)
