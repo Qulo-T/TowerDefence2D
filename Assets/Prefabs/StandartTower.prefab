@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 617970541769300180}
   - component: {fileID: 617970541769300183}
   - component: {fileID: 617970541769300186}
+  - component: {fileID: 192936560793483528}
   m_Layer: 0
   m_Name: StandartTower
   m_TagString: Untagged
@@ -156,3 +157,16 @@ MonoBehaviour:
   _decreaseCooldown: 0.05
   _costUpStep: 15
   _minCooldown: 0.1
+--- !u!114 &192936560793483528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617970541769300176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180e0b70c73d52247b2cbbd64fb7196d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goldReturnMF: 0.5

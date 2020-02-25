@@ -29,17 +29,28 @@ public class Shop : MonoBehaviour
 
     public void BuyTower(GameObject prefab)
     {
-        GameObject tower = Instantiate(prefab);
-        tower.transform.SetParent(_emptyCell.transform);
-        tower.transform.position = _emptyCell.transform.position;
-        _emptyCell.GetComponent<EmptyCell>().SetStatus(false);
+        int playerGold = glObjects.playerGL.Gold;
+        int price = prefab.GetComponent<ATower>().GetPrice;
+        if (price < playerGold)
+        {
+            glObjects.playerGL.Buy(price);
+            CreateTower(prefab);
 
-        gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }        
     }
 
     public void SetEmptyCell(GameObject cell)
     {
         _emptyCell = cell;
+    }
+
+    private void CreateTower(GameObject prefab)
+    {
+        GameObject tower = Instantiate(prefab);
+        tower.transform.SetParent(_emptyCell.transform);
+        tower.transform.position = _emptyCell.transform.position;
+        _emptyCell.GetComponent<EmptyCell>().SetStatus(false);
     }
 
 

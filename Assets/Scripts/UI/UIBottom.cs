@@ -11,6 +11,7 @@ public class UIBottom : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private Player _player;
     [SerializeField] private Button _firerateButton;
+    [SerializeField] private Button _destroyButton;
 
     private GameObject _tower;
     private ATower _atower;
@@ -25,6 +26,7 @@ public class UIBottom : MonoBehaviour
         _icon.sprite = _tower.GetComponent<SpriteRenderer>().sprite;
         _atower = _tower.GetComponent<ATower>();
         _towerUpgrade = _tower.GetComponent<TowerUpgrade>();
+        _destroyButton.interactable = true;
         CanFirerateUp();
         MoneyUpdate();
         UIupdate();
@@ -58,11 +60,31 @@ public class UIBottom : MonoBehaviour
         }
     }
 
+    public void DestroyButton() //button
+    {
+        if (_tower != null)
+        {
+            Destroy(_tower);
+            _tower = null;
+            _destroyButton.interactable = false;
+        }
+
+        UIupdate();
+    }
+
     private void UIupdate()
     {
-        _damagePoint.text = "" + _atower.Damage;
-        _fireRatePoint.text = "" + _atower.BaseCooldown;
-        _costUpgrade.text = "Cost: " + costUP;
+        _damagePoint.text = "";
+        _fireRatePoint.text = "";
+        _costUpgrade.text = "Cost: ";
+
+        if (_tower != null)
+        {
+            _damagePoint.text = "" + _atower.Damage;
+            _fireRatePoint.text = "" + _atower.BaseCooldown;
+            _costUpgrade.text = "Cost: " + costUP;
+        }
+
     }
     public void MoneyUpdate()
     {
