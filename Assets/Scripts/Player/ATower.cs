@@ -9,58 +9,65 @@ public abstract class ATower : MonoBehaviour
     [SerializeField] private float _baseCooldown;
     [SerializeField] private string _name;
     [SerializeField] private int _price;
+    [SerializeField] private int _layerMask;
+    [SerializeField] private GameObject _bulletPrefab;
     private float _cooldown;
-    
-    void Update()
-    {
-        if (CanShoot())
-        {
-            SearchTarget();
-        }
 
-        if (_cooldown > 0)
-        {
-            _cooldown -= Time.deltaTime;
-        }
+    private void Start()
+    {
+        GetComponent<SearchTarget>().SetTargetData(_range, _layerMask);
+        GetComponent<Shooting>().SetShootData(_baseCooldown, _bulletPrefab);
     }
+    /*  void Update()
+      {
+          if (CanShoot())
+          {
+              SearchTarget();
+          }
 
-    bool CanShoot() 
-    {
-        if (_cooldown <=0)
-        {
-            return true;
-        }
-        return false;
-    } 
+          if (_cooldown > 0)
+          {
+              _cooldown -= Time.deltaTime;
+          }
+      }
 
-    void SearchTarget()
-    {
-        Transform target = null;
-        float targetDistance = Mathf.Infinity;
+      bool CanShoot() 
+      {
+          if (_cooldown <=0)
+          {
+              return true;
+          }
+          return false;
+      } 
 
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
-            float currentDistance = Vector2.Distance(transform.position, enemy.transform.position);
+      void SearchTarget()
+      {
+          Transform target = null;
+          float targetDistance = Mathf.Infinity;
 
-            if (currentDistance < targetDistance && currentDistance < _range)
-            {
-                target = enemy.transform;
-                targetDistance = currentDistance;
-            }
-        }
+          foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+          {
+              float currentDistance = Vector2.Distance(transform.position, enemy.transform.position);
 
-        if (target!=null)
-        {
-            Shoot(target);
-        }
-    }
+              if (currentDistance < targetDistance && currentDistance < _range)
+              {
+                  target = enemy.transform;
+                  targetDistance = currentDistance;
+              }
+          }
 
-    void Shoot(Transform target)
-    {
-        _cooldown = _baseCooldown;
-        target.gameObject.GetComponent<AEnemy>().TakenDamage(_damage);
-    }
+          if (target!=null)
+          {
+              Shoot(target);
+          }
+      }
 
+      void Shoot(Transform target)
+      {
+          _cooldown = _baseCooldown;
+          target.gameObject.GetComponent<AEnemy>().TakenDamage(_damage);
+      }
+      */
     public int Damage { get { return _damage; } set { _damage = value; } }
     public int GetPrice { get { return _price; } }
     public string GetName { get { return _name; } }

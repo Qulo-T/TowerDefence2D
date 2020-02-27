@@ -18,8 +18,7 @@ public class Shooting : MonoBehaviour
 
         if (_searchTarget == null)
         {
-            Debug.Log("Component SearchTarget not found. Your need to add it to "+gameObject.name);
-            
+            Debug.Log("Component SearchTarget not found. Your need to add it to "+gameObject.name);            
         }
     }
     void Update()

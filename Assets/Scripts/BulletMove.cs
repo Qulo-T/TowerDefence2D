@@ -5,16 +5,29 @@ using UnityEngine;
 public class BulletMove : MonoBehaviour
 {
     private GameObject _target;
+    private AEffects[] effects;
     public float speed;
-    // Update is called once per frame
+
+
     void Update()
     {
-        transform.Translate(_target.transform.position * speed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, _target.transform.position) < 0.2f)
+        if (_target!=null)
         {
-            //вызвать эффект gameobject.GetComponent<AEffects>().RunEffect();
-            
+            Vector3 dir = _target.transform.position - transform.position;
+            transform.Translate(dir.normalized * speed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, _target.transform.position) < 0.2f)
+            {
+                effects = transform.parent.GetComponents<AEffects>();
+                for (int i = 0; i < effects.Length; i++)
+                {
+                    effects[i].RunEffect(_target);
+                }
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
             Destroy(gameObject);
         }
     }
@@ -23,4 +36,5 @@ public class BulletMove : MonoBehaviour
     {
         _target = target;
     }
+
 }
