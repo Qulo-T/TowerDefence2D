@@ -6,6 +6,7 @@ public class SearchTarget : MonoBehaviour
 {
     private int _enemyMask;
     private float _range;
+    private RaycastHit2D[] hit;
 
     private GameObject target;
 
@@ -18,7 +19,7 @@ public class SearchTarget : MonoBehaviour
     {
         float minDistance = _range;
 
-        RaycastHit2D[] hit = Physics2D.CircleCastAll(transform.position, _range, Vector2.zero, _range, _enemyMask);
+        hit = Physics2D.CircleCastAll(transform.position, _range, Vector2.zero, _range, _enemyMask);
 
         foreach (RaycastHit2D enemy in hit)
         {
@@ -66,4 +67,13 @@ public class SearchTarget : MonoBehaviour
     }
 
     public GameObject GetTarget { get { return target; } }
+    public GameObject[] GetAllTargets()
+    {
+        GameObject[] targets = new GameObject[hit.Length];
+        for (int i = 0; i < hit.Length; i++)
+        {
+            targets[i] = hit[i].collider.gameObject;
+        }
+        return targets;
+    }
 }
