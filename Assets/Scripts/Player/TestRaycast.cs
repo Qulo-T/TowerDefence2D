@@ -5,8 +5,13 @@ using UnityEngine;
 public class TestRaycast : MonoBehaviour
 {
     public float radius;
-    int layerMask = 1 << 8;
+    int layerMask = 2;
 
+    private void Start()
+    {
+        layerMask = 1 << layerMask;
+        layerMask = ~layerMask;
+    }
     void Update()
     {
         Debug.DrawRay(transform.position, transform.up * radius, Color.green,1,false);
